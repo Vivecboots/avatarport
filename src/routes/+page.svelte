@@ -4,15 +4,21 @@
             <source src="/vecteezy_retro-sci-fi-background-futuristic-grid-landscape-of-the-80s-digital-cyber-surface-suitable-for-design-in-the-style-of-the-1980s_1624138.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        
         <img src="/ship.png" alt="Ship" class="ship">
         <img src="/invade.png" alt="Invader" class="invader" id="invaderImg">
         <div class="score">Score: <span id="scoreCounter">0</span></div>
 
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
+    <DancingFigure />
     <!-- Rest of the grid items -->
     <!-- ... -->
 </div>
+
+
+
+
 
 <svg width="0" height="0" style="position:absolute">
     <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -245,7 +251,7 @@ figure svg,
 
 
 <script>
-
+import DancingFigure from '../lib/DancingFigure.svelte';
 import { onMount } from 'svelte';
 
 onMount(() => {
