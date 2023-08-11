@@ -24,11 +24,21 @@
         renderer.setSize(figureContainer.clientWidth, figureContainer.clientHeight);
         figureContainer.appendChild(renderer.domElement);
 
+        let mixer; // Declare the mixer for animations
+
         const loader = new GLTFLoader();
         loader.load(
             '/checkwatch.glb',
             (gltf) => {
                 scene.add(gltf.scene);
+
+                // If there are animations, play them
+                if (gltf.animations && gltf.animations.length) {
+                    mixer = new THREE.AnimationMixer(gltf.scene);
+                    gltf.animations.forEach((clip) => {
+                        mixer.clipAction(clip).play();
+                    });
+                }
             },
             undefined,
             (error) => {
@@ -38,6 +48,12 @@
 
         const animate = () => {
             requestAnimationFrame(animate);
+
+            // Update the mixer on each frame
+            if (mixer) {
+                mixer.update(0.01); // You can adjust this value for animation speed
+            }
+
             renderer.render(scene, camera);
         };
 
@@ -53,7 +69,6 @@
     .figure-container {
         height: 75vh;
         position: relative;
-        /* background-color: red; */ /* Commented out or remove this line */
     }
 
     #3d-figure {
@@ -61,4 +76,3 @@
         height: 100%;
     }
 </style>
-
