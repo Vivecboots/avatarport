@@ -33,7 +33,7 @@
 </svg>
 
 <audio id="invaderSound" src="/mixkit-arcade-slot-machine-wheel-1933.wav"></audio>
-<audio id="shipSound" src="/mixkit-retro-video-game-bubble-laser-277.wav"></audio>
+<audio id="shipSound" src="/laser.mp3"></audio>
 <audio id="titleSound" src="/music_zapsplat_game_music_arcade_electro_repeating_retro_arp_electro_drums_serious_012.mp3"></audio>
 
 
