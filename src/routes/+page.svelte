@@ -5,18 +5,40 @@
             Your browser does not support the video tag.
         </video>
         <img src="/ship.png" alt="Ship" class="ship">
+        <img src="/invade.png" alt="Invader" class="invader"> <!-- Invader added here -->
+        <div class="title">Your Title Here</div>
     </div>
-    <div class="grid-item bg-blue-500">2</div>
-    <div class="grid-item bg-green-500">3</div>
-    <div class="grid-item bg-yellow-500">4</div>
-    <div class="grid-item bg-purple-500">5</div>
-    <div class="grid-item bg-indigo-500">6</div>
-    <div class="grid-item bg-pink-500">7</div>
-    <div class="grid-item bg-teal-500">8</div>
-    <div class="grid-item bg-orange-500">9</div>
+    <!-- Rest of the grid items -->
+    <!-- ... -->
 </div>
 
+<svg width="0" height="0" style="position:absolute">
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#a020f0; stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#32cd32; stop-opacity:1" />
+    </linearGradient>
+    <filter id="gradient-text">
+        <feFlood flood-color="black" result="black" />
+        <feFlood flood-color="red" result="color" />
+        <feOffset in="SourceAlpha" dy="1" dx="1" result="offset" />
+        <feComposite in="black" in2="offset" operator="in" result="comp" />
+        <feComposite in="comp" in2="SourceAlpha" operator="in" />
+        <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode in="comp" />
+        </feMerge>
+    </filter>
+</svg>
+
 <style lang="postcss">
+    /* Custom Font */
+    @font-face {
+        font-family: 'PressStart2P';
+        src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -27,7 +49,7 @@
     .hero {
         grid-column: span 3;
         position: relative;
-        height: 66.66vh; /* Adjust this value as needed */
+        height: 90vh;
     }
 
     .video-bg {
@@ -40,20 +62,67 @@
         z-index: -1;
     }
 
+    /* Title Style */
+    /* Title Style */
+    .title {
+    font-family: 'PressStart2P', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Initial scale */
+    font-size: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, #a020f0, #32cd32);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Breakpoints */
+@media (max-width: 1800px) {
+    .title {
+        transform: translate(-50%, -50%) scale(4);
+    }
+}
+
+@media (max-width: 992px) {
+    .title {
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        transform: translate(-50%, -50%) scale(.9);
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        transform: translate(-50%, -50%) scale(.5);
+    }
+}
+
+
+
+
     /* Ship Animation */
     .ship {
         animation: moveShip 3s alternate infinite;
-        width: auto; /* Adjust based on your needs */
-        height: 10%; /* Adjust based on your needs */
-		
+        width: auto;
+        height: 24%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        --ship-width: -500%;
     }
 
- @keyframes moveShip {
+    @keyframes moveShip {
         0% {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(100% - 100px)); /* Adjust this value based on the width of the ship image */
+            transform: translateX(calc(100% - var(--ship-width)));
         }
     }
 
@@ -94,4 +163,14 @@
             transform: scale(1.5);
         }
     }
+
+    .invader {
+    position: absolute;
+    top: 0; /* Position at the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering adjustment */
+    width: auto;
+    height: 24%; /* Adjust based on your needs */
+    z-index: 1; /* Ensure it's above the video but below the title */
+}
 </style>
