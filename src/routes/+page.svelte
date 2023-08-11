@@ -6,7 +6,7 @@
         </video>
         <img src="/ship.png" alt="Ship" class="ship">
         <img src="/invade.png" alt="Invader" class="invader">
-        <div class="title">Blair Winslow-Nason</div>
+        <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
     <!-- Rest of the grid items -->
     <!-- ... -->
@@ -63,42 +63,53 @@
 }
 
 /* Title Style */
-/* Title Style */
 .title {
     font-family: 'PressStart2P', sans-serif;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     font-size: 100%;
     z-index: 1;
+    display: inline-block;
+}
+
+.title span {
     background: linear-gradient(to bottom, #a020f0, #32cd32);
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    content: "Blair Winslow-Nason"; /* Set the default content */
-    display: inline-block; /* Make it an inline-block to support pseudo-elements */
-    overflow: hidden; /* Hide overflow to ensure the pseudo-element doesn't exceed the boundaries */
-    transition: color 0.3s; /* Add transition for smooth effect */
+    display: block;
+    transition: opacity 0.3s; /* Transition only the opacity */
+    opacity: 1; /* Default opacity */
 }
 
-.title:hover {
-    color: transparent; /* Hide the original text on hover */
-}
-
-.title:hover::before {
-    content: "Your New Text Here"; /* Replace with the text you want to display on hover */
+.title::before {
+    content: "Your New Text Here";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #32cd32, #a020f0); /* Reversed gradient for hover effect */
+    background: linear-gradient(to bottom, lime, lime); /* Set both gradient stops to lime for a solid neon lime green color */
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
+    text-shadow: 0 0 5px lime, 0 0 10px lime, 0 0 15px lime, 0 0 20px lime; /* neon glow */
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
 }
 
+.title:hover span {
+    opacity: 0;
+}
+
+.title:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
 
 /* Breakpoints */
 @media (max-width: 1800px) {
