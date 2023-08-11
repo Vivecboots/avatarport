@@ -53,7 +53,7 @@
     .figure-container {
         height: 75vh;
         position: relative;
-        background-color: red; /* Temporary background color to ensure the container is visible */
+        /* background-color: red; */ /* Commented out or remove this line */
     }
 
     #3d-figure {
@@ -61,3 +61,4 @@
         height: 100%;
     }
 </style>
+
