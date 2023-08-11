@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
     let figureContainer;
 
@@ -9,7 +10,7 @@
         const scene = new THREE.Scene();
 
         // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -20,40 +21,58 @@
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setClearColor(0x000000, 0); // Set clear color to black with full transparency
+        renderer.setClearColor(0x000000, 0);
         renderer.setSize(figureContainer.clientWidth, figureContainer.clientHeight);
         figureContainer.appendChild(renderer.domElement);
 
-        let mixer; // Declare the mixer for animations
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.minDistance = camera.position.z / 2.5;
+        controls.maxDistance = camera.position.z * 2.5;
+
+        let mixer;
+        let defaultAction;
+        let backflipAction;
 
         const loader = new GLTFLoader();
+
+        // Load the default model and animation
         loader.load(
             '/checkwatch.glb',
             (gltf) => {
                 scene.add(gltf.scene);
 
-                // If there are animations, play them
-                if (gltf.animations && gltf.animations.length) {
-                    mixer = new THREE.AnimationMixer(gltf.scene);
-                    gltf.animations.forEach((clip) => {
-                        mixer.clipAction(clip).play();
-                    });
-                }
-            },
-            undefined,
-            (error) => {
-                console.error("An error occurred while loading the GLTF model:", error);
+                mixer = new THREE.AnimationMixer(gltf.scene);
+                defaultAction = mixer.clipAction(gltf.animations[0]);
+                defaultAction.play();
+
+                // Load the backflip animation
+                loader.load('/backflip.glb', (gltfBackflip) => {
+                    backflipAction = mixer.clipAction(gltfBackflip.animations[0]);
+                });
             }
         );
+
+        figureContainer.addEventListener('click', () => {
+            if (mixer && backflipAction) {
+                mixer.stopAllAction();
+                backflipAction.setLoop(THREE.LoopOnce);
+                backflipAction.play();
+
+                backflipAction.addEventListener('finished', () => {
+                    mixer.stopAllAction();
+                    defaultAction.play();
+                });
+            }
+        });
 
         const animate = () => {
             requestAnimationFrame(animate);
 
-            // Update the mixer on each frame
             if (mixer) {
-                mixer.update(0.01); // You can adjust this value for animation speed
+                mixer.update(0.01);
             }
 
+            controls.update();
             renderer.render(scene, camera);
         };
 
@@ -67,7 +86,7 @@
 
 <style>
     .figure-container {
-        height: 75vh;
+        height: 250vh;
         position: relative;
     }
 
