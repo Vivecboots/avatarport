@@ -85,10 +85,10 @@
 }
 
 .title::before {
-    content: "Your New Text Here";
+    content: "DeFi and Web3 Dev";
     position: absolute;
     top: 0;
-    left: 0;
+    left: 1rem;
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, lime, lime); /* Set both gradient stops to lime for a solid neon lime green color */
