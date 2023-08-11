@@ -8,18 +8,19 @@
     onMount(() => {
         const scene = new THREE.Scene();
 
-        // Add ambient and directional light
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(0, 1, 0);
+        directionalLight.position.set(0, 1, 1).normalize();
         scene.add(directionalLight);
 
         const camera = new THREE.PerspectiveCamera(75, figureContainer.clientWidth / figureContainer.clientHeight, 0.1, 1000);
-        camera.position.z = 5; // Adjust this value as needed
+        camera.position.z = 5;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setClearColor(0x000000, 0); // Set clear color to black with full transparency
         renderer.setSize(figureContainer.clientWidth, figureContainer.clientHeight);
         figureContainer.appendChild(renderer.domElement);
 
@@ -29,7 +30,7 @@
             (gltf) => {
                 scene.add(gltf.scene);
             },
-            undefined, // For progress callback (if needed)
+            undefined,
             (error) => {
                 console.error("An error occurred while loading the GLTF model:", error);
             }
@@ -52,6 +53,7 @@
     .figure-container {
         height: 75vh;
         position: relative;
+        background-color: red; /* Temporary background color to ensure the container is visible */
     }
 
     #3d-figure {
