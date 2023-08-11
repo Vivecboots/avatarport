@@ -6,6 +6,8 @@
         </video>
         <img src="/ship.png" alt="Ship" class="ship">
         <img src="/invade.png" alt="Invader" class="invader" id="invaderImg">
+        <div class="score">Score: <span id="scoreCounter">0</span></div>
+
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
     <!-- Rest of the grid items -->
@@ -29,6 +31,11 @@
         </feMerge>
     </filter>
 </svg>
+
+<audio id="invaderSound" src="/mixkit-arcade-slot-machine-wheel-1933.wav"></audio>
+<audio id="shipSound" src="/mixkit-retro-video-game-bubble-laser-277.wav"></audio>
+<audio id="titleSound" src="/music_zapsplat_game_music_arcade_electro_repeating_retro_arp_electro_drums_serious_012.mp3"></audio>
+
 
 <style lang="postcss">
    /* Custom Font */
@@ -144,7 +151,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    --ship-width: -500%;
+    --ship-width: -450%;
 }
 
 @keyframes moveShip {
@@ -219,22 +226,64 @@ figure svg,
 }
 
 
+.score {
+    font-family: 'PressStart2P', sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: white;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
 </style>
 
+
 <script>
-    import { onMount } from 'svelte';
 
-    onMount(() => {
-        const invaderImg = document.getElementById('invaderImg');
+import { onMount } from 'svelte';
 
-        invaderImg.addEventListener('mouseover', function() {
-            invaderImg.src = '/greeninvader.png';
-        });
+onMount(() => {
+    const invaderImg = document.getElementById('invaderImg');
+    const shipImg = document.querySelector('.ship');
+    const invaderSound = document.getElementById('invaderSound');
+    const shipSound = document.getElementById('shipSound');
+    const titleSound = document.getElementById('titleSound');
+    const titleElement = document.querySelector('.title');
+    const scoreCounter = document.getElementById('scoreCounter');
+    let score = 0;
 
-        invaderImg.addEventListener('mouseout', function() {
-            invaderImg.src = '/invade.png';
-        });
+    invaderImg.addEventListener('click', function() {
+        invaderSound.play();
+        score += 1;
+        scoreCounter.textContent = score;
     });
+
+    shipImg.addEventListener('click', function() {
+        shipSound.play();
+        score += 2;
+        scoreCounter.textContent = score;
+    });
+
+    titleElement.addEventListener('click', function() {
+        titleSound.play();
+    });
+
+    invaderImg.addEventListener('mouseover', function() {
+        invaderImg.src = '/greeninvader.png';
+    });
+
+    invaderImg.addEventListener('mouseout', function() {
+        invaderImg.src = '/invade.png';
+    });
+});
+
+
 </script>
 
 
