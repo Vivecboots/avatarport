@@ -5,8 +5,8 @@
             Your browser does not support the video tag.
         </video>
         <img src="/ship.png" alt="Ship" class="ship">
-        <img src="/invade.png" alt="Invader" class="invader"> <!-- Invader added here -->
-        <div class="title">Your Title Here</div>
+        <img src="/invade.png" alt="Invader" class="invader">
+        <div class="title">Blair Winslow-Nason</div>
     </div>
     <!-- Rest of the grid items -->
     <!-- ... -->
@@ -31,52 +31,74 @@
 </svg>
 
 <style lang="postcss">
-    /* Custom Font */
-    @font-face {
-        font-family: 'PressStart2P';
-        src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+   /* Custom Font */
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 4px;
-    }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
 
-    /* Hero */
-    .hero {
-        grid-column: span 3;
-        position: relative;
-        height: 90vh;
-    }
+/* Hero */
+.hero {
+    grid-column: span 3;
+    position: relative;
+    height: 90vh;
+}
 
-    .video-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 
-    /* Title Style */
-    /* Title Style */
-    .title {
+/* Title Style */
+/* Title Style */
+.title {
     font-family: 'PressStart2P', sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1); /* Initial scale */
+    transform: translate(-50%, -50%) scale(1);
     font-size: 100%;
     z-index: 1;
     background: linear-gradient(to bottom, #a020f0, #32cd32);
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
+    content: "Blair Winslow-Nason"; /* Set the default content */
+    display: inline-block; /* Make it an inline-block to support pseudo-elements */
+    overflow: hidden; /* Hide overflow to ensure the pseudo-element doesn't exceed the boundaries */
+    transition: color 0.3s; /* Add transition for smooth effect */
 }
+
+.title:hover {
+    color: transparent; /* Hide the original text on hover */
+}
+
+.title:hover::before {
+    content: "Your New Text Here"; /* Replace with the text you want to display on hover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #32cd32, #a020f0); /* Reversed gradient for hover effect */
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 
 /* Breakpoints */
 @media (max-width: 1800px) {
@@ -103,74 +125,90 @@
     }
 }
 
-
-
-
-    /* Ship Animation */
-    .ship {
-        animation: moveShip 3s alternate infinite;
-        width: auto;
-        height: 24%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        --ship-width: -500%;
-    }
-
-    @keyframes moveShip {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(calc(100% - var(--ship-width)));
-        }
-    }
-
-    /* Square grid items */
-    .grid-item {
-        aspect-ratio: 1 / 1;
-    }
-
-    /* Existing styles */
-    figure {
-        @apply flex relative flex-col;
-    }
-    figure svg,
-    .img-bg {
-        @apply w-64 h-64 md:w-80 md:h-80;
-    }
-    .img-bg {
-        @apply absolute z-[-1] rounded-full blur-[50px] transition-all;
-        animation: pulse 5s cubic-bezier(0, 0, 0, 0.5) infinite,
-            glow 5s linear infinite;
-    }
-    @keyframes glow {
-        0% {
-            @apply bg-primary-400/50;
-        }
-        33% {
-            @apply bg-secondary-400/50;
-        }
-        66% {
-            @apply bg-tertiary-400/50;
-        }
-        100% {
-            @apply bg-primary-400/50;
-        }
-    }
-    @keyframes pulse {
-        50% {
-            transform: scale(1.5);
-        }
-    }
-
-    .invader {
-    position: absolute;
-    top: 0; /* Position at the top */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Centering adjustment */
+/* Ship Animation */
+.ship {
+    animation: moveShip 3s alternate infinite;
     width: auto;
-    height: 24%; /* Adjust based on your needs */
-    z-index: 1; /* Ensure it's above the video but below the title */
+    height: 24%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    --ship-width: -500%;
 }
+
+@keyframes moveShip {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(100% - var(--ship-width)));
+    }
+}
+
+/* Square grid items */
+.grid-item {
+    aspect-ratio: 1 / 1;
+}
+
+/* Existing styles */
+figure {
+    @apply flex relative flex-col;
+}
+
+figure svg,
+.img-bg {
+    @apply w-64 h-64 md:w-80 md:h-80;
+}
+
+.img-bg {
+    @apply absolute z-[-1] rounded-full blur-[50px] transition-all;
+    animation: pulse 5s cubic-bezier(0, 0, 0, 0.5) infinite,
+        glow 5s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        @apply bg-primary-400/50;
+    }
+    33% {
+        @apply bg-secondary-400/50;
+    }
+    66% {
+        @apply bg-tertiary-400/50;
+    }
+    100% {
+        @apply bg-primary-400/50;
+    }
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.invader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 24%;
+    z-index: 1;
+    animation: moveInvader 3s alternate infinite;
+    --invader-width: -300%;
+    filter: hue-rotate(0deg) saturate(100%);
+    transition: filter 0.1s;
+}
+
+@keyframes moveInvader {
+    0%, 100% {
+        transform: translateX(0);
+        filter: hue-rotate(0deg) saturate(100%);
+    }
+    50% {
+        filter: hue-rotate(40deg) saturate(100%);
+        transform: translateX(calc(50% - var(--invader-width)));
+    }
+}
+
 </style>
