@@ -5,7 +5,7 @@
             Your browser does not support the video tag.
         </video>
         <img src="/ship.png" alt="Ship" class="ship">
-        <img src="/invade.png" alt="Invader" class="invader">
+        <img src="/invade.png" alt="Invader" class="invader" id="invaderImg">
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
     <!-- Rest of the grid items -->
@@ -204,22 +204,37 @@ figure svg,
     left: 0;
     width: auto;
     height: 24%;
-    z-index: 1;
+    z-index: 2;
     animation: moveInvader 3s alternate infinite;
     --invader-width: -300%;
-    filter: hue-rotate(0deg) saturate(100%);
-    transition: filter 0.1s;
 }
 
 @keyframes moveInvader {
     0%, 100% {
         transform: translateX(0);
-        filter: hue-rotate(0deg) saturate(100%);
     }
     50% {
-        filter: hue-rotate(40deg) saturate(100%);
         transform: translateX(calc(50% - var(--invader-width)));
     }
 }
 
+
 </style>
+
+<script>
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        const invaderImg = document.getElementById('invaderImg');
+
+        invaderImg.addEventListener('mouseover', function() {
+            invaderImg.src = '/greeninvader.png';
+        });
+
+        invaderImg.addEventListener('mouseout', function() {
+            invaderImg.src = '/invade.png';
+        });
+    });
+</script>
+
+
