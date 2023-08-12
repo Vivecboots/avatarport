@@ -36,6 +36,7 @@
         loader.load(
             '/checkwatch.glb',
             (gltf) => {
+                gltf.scene.scale.set(0.88, 0.88, 0.88); // Scale down to 88% of its original size
                 scene.add(gltf.scene);
 
                 if (gltf.animations && gltf.animations.length) {
@@ -81,13 +82,15 @@
     });
 </script>
 
+
 <div bind:this={figureContainer} class="figure-container col-span-2">
     <div id="3d-figure"></div>
 </div>
 
+
 <style>
     .figure-container {
-        height: 250vh;
+        height: 166.66vh; /* Adjusted to two-thirds of the original height */
         position: relative;
     }
 

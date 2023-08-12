@@ -11,11 +11,33 @@
 
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
-    <DancingFigure />
-    <!-- Rest of the grid items -->
-    <!-- ... -->
+   
+        
+    <div class="stepper-container">
+        <div class="progress-bar"></div>
+        <div class="steps">
+            <div class="step active">
+                <div class="step-header">Step 1: Introduction</div>
+                <div class="step-content">
+                    <DancingFigure />
+                </div>
+            </div>
+            <!-- Add more steps as needed -->
+            <div class="step">
+                <div class="step-header">Step 2</div>
+                <div class="step-content">
+                    <!-- Content for Step 2 -->
+                </div>
+            </div>
+            <!-- ... up to Step 6 ... -->
+        </div>
+        <div class="step-navigation">
+            <button class="back-btn">Back</button>
+            <button class="next-btn">Next</button>
+        </div>
+    </div>
+    <!-- ... rest of the grid items ... -->
 </div>
-
 
 
 
@@ -251,6 +273,78 @@ figure svg,
 }
 
 
+
+.stepper-container {
+    grid-column: span 3; /* Add this line */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 90vh;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-top: 6%;
+
+}
+
+
+.progress-bar {
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.steps {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.step {
+    padding: 16px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.step.active {
+    border: 2px solid #8a41df;
+}
+
+.step-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.step-content {
+    margin-bottom: 8px;
+}
+
+.step-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-btn, .next-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #8a41df;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:disabled, .next-btn:disabled {
+    background: #e0e0e0;
+    cursor: not-allowed;
+}
+
+
+
 </style>
 
 
@@ -291,8 +385,41 @@ onMount(() => {
     invaderImg.addEventListener('mouseout', function() {
         invaderImg.src = '/invade.png';
     });
+
+    // Stepper functionality
+let currentStep = 0;
+const steps = document.querySelectorAll('.step');
+const progressBar = document.querySelector('.progress-bar::before');
+const nextBtn = document.querySelector('.next-btn');
+const backBtn = document.querySelector('.back-btn');
+
+function updateStep() {
+    steps.forEach((step, index) => {
+        if (index === currentStep) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
+    progressBar.style.width = `${(currentStep / (steps.length - 1)) * 100}%`;
+}
+
+nextBtn.addEventListener('click', function() {
+    if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep();
+    }
 });
 
+backBtn.addEventListener('click', function() {
+    if (currentStep > 0) {
+        currentStep--;
+        updateStep();
+    }
+});
+
+
+});
 
 </script>
 
