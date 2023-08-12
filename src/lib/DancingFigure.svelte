@@ -26,8 +26,9 @@
         figureContainer.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.minDistance = camera.position.z / 1.5;
-        controls.maxDistance = camera.position.z * 2.5;
+        controls.minDistance = camera.position.z / 3;
+        controls.maxDistance = camera.position.z * 5;
+        controls.zoomSpeed = 0.5;
 
         let mixer;
         let defaultAction, backflipAction;
@@ -36,7 +37,7 @@
         loader.load(
             '/checkwatch.glb',
             (gltf) => {
-                gltf.scene.scale.set(0.88, 0.88, 0.88); // Scale down to 88% of its original size
+                gltf.scene.scale.set(0.88, 0.88, 0.88);
                 scene.add(gltf.scene);
 
                 if (gltf.animations && gltf.animations.length) {
@@ -55,15 +56,12 @@
 
         figureContainer.addEventListener('click', () => {
             if (mixer && backflipAction) {
-                // Stop any currently playing animations
                 mixer.stopAllAction();
-
-                // Reset and start the backflip animation
                 backflipAction.reset().setLoop(THREE.LoopOnce).play();
 
                 setTimeout(() => {
                     defaultAction.reset().play();
-                }, 1300); // Switch back to watch animation after 1.3 seconds
+                }, 1300);
             }
         });
 
@@ -82,15 +80,13 @@
     });
 </script>
 
-
 <div bind:this={figureContainer} class="figure-container col-span-2">
     <div id="3d-figure"></div>
 </div>
 
-
 <style>
     .figure-container {
-        height: 166.66vh; /* Adjusted to two-thirds of the original height */
+        height: 166.66vh;
         position: relative;
     }
 
@@ -99,6 +95,8 @@
         height: 100%;
     }
 </style>
+
+
 
 
 

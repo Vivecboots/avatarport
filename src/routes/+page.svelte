@@ -275,7 +275,7 @@ figure svg,
 
 
 .stepper-container {
-    grid-column: span 3; /* Add this line */
+    grid-column: span 3; 
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -284,10 +284,10 @@ figure svg,
     border: 1px solid #e0e0e0;
     padding: 16px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background */
     margin-top: 6%;
-
 }
+
 
 
 .progress-bar {
