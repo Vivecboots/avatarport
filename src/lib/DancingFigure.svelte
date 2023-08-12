@@ -26,42 +26,43 @@
         figureContainer.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.minDistance = camera.position.z / 2.5;
+        controls.minDistance = camera.position.z / 1.5;
         controls.maxDistance = camera.position.z * 2.5;
 
         let mixer;
-        let defaultAction;
-        let backflipAction;
+        let defaultAction, backflipAction;
 
         const loader = new GLTFLoader();
-
-        // Load the default model and animation
         loader.load(
             '/checkwatch.glb',
             (gltf) => {
                 scene.add(gltf.scene);
 
-                mixer = new THREE.AnimationMixer(gltf.scene);
-                defaultAction = mixer.clipAction(gltf.animations[0]);
-                defaultAction.play();
+                if (gltf.animations && gltf.animations.length) {
+                    mixer = new THREE.AnimationMixer(gltf.scene);
+                    defaultAction = mixer.clipAction(gltf.animations[0]);
+                    defaultAction.play();
 
-                // Load the backflip animation
-                loader.load('/backflip.glb', (gltfBackflip) => {
-                    backflipAction = mixer.clipAction(gltfBackflip.animations[0]);
-                });
+                    loader.load('/backflip.glb', (backflipGltf) => {
+                        if (backflipGltf.animations && backflipGltf.animations.length) {
+                            backflipAction = mixer.clipAction(backflipGltf.animations[0]);
+                        }
+                    });
+                }
             }
         );
 
         figureContainer.addEventListener('click', () => {
             if (mixer && backflipAction) {
+                // Stop any currently playing animations
                 mixer.stopAllAction();
-                backflipAction.setLoop(THREE.LoopOnce);
-                backflipAction.play();
 
-                backflipAction.addEventListener('finished', () => {
-                    mixer.stopAllAction();
-                    defaultAction.play();
-                });
+                // Reset and start the backflip animation
+                backflipAction.reset().setLoop(THREE.LoopOnce).play();
+
+                setTimeout(() => {
+                    defaultAction.reset().play();
+                }, 1300); // Switch back to watch animation after 1.3 seconds
             }
         });
 
@@ -95,3 +96,7 @@
         height: 100%;
     }
 </style>
+
+
+
+

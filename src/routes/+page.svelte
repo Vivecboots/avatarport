@@ -245,6 +245,10 @@ figure svg,
     border-radius: 5px;
 }
 
+.dancing-figure {
+   
+    z-index: 100; 
+}
 
 
 </style>
