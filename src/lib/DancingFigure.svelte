@@ -61,8 +61,8 @@
     function setupControls(camera, renderer) {
     const controls = new OrbitControls(camera, renderer.domElement);
     
-    controls.minDistance = 2; // Adjust this value based on your needs
-    controls.maxDistance = camera.position.z * 5;
+    controls.minDistance = 4; // Adjust this value based on your needs
+    controls.maxDistance = camera.position.z * 3;
     controls.zoomSpeed = 0.5;
     
     // Restrict vertical orbit to top half
