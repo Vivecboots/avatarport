@@ -22,27 +22,26 @@
     });
 
     function setupScene() {
-    const scene = new THREE.Scene();
+        const scene = new THREE.Scene();
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(0, 1, 1).normalize();
-    scene.add(directionalLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(0, 1, 1).normalize();
+        scene.add(directionalLight);
 
-    // Skybox
-    const textureLoader = new THREE.TextureLoader();
-    const bgTexture = textureLoader.load('/between_bridges_4k.png');
-    const skyboxGeometry = new THREE.SphereGeometry(500, 60, 40);
-    const skyboxMaterial = new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide });
-    const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
-    scene.add(skybox);
+        // Skybox
+        const textureLoader = new THREE.TextureLoader();
+        const bgTexture = textureLoader.load('/between_bridges_4k.png');
+        const skyboxGeometry = new THREE.SphereGeometry(500, 60, 40);
+        const skyboxMaterial = new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide });
+        const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
+        scene.add(skybox);
 
-    return scene;
-}
-
+        return scene;
+    }
 
     function setupCamera() {
         const camera = new THREE.PerspectiveCamera(75, figureContainer.clientWidth / figureContainer.clientHeight, 0.1, 1000);
@@ -59,20 +58,15 @@
     }
 
     function setupControls(camera, renderer) {
-    const controls = new OrbitControls(camera, renderer.domElement);
-    
-    controls.minDistance = 4; // Adjust this value based on your needs
-    controls.maxDistance = camera.position.z * 3;
-    controls.zoomSpeed = 0.5;
-    
-    // Restrict vertical orbit to top half
-    controls.minPolarAngle = 0; // Top
-    controls.maxPolarAngle = Math.PI / 2; // Horizontal
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 4;
+        controls.maxDistance = camera.position.z * 3;
+        controls.zoomSpeed = 0.5;
+        controls.minPolarAngle = 0;
+        controls.maxPolarAngle = Math.PI / 2;
 
-    return controls;
-}
-
-
+        return controls;
+    }
 
     function setBackground(renderer) {
         const textureLoader = new THREE.TextureLoader();
@@ -81,28 +75,26 @@
     }
 
     function loadModels(scene) {
-    const loader = new GLTFLoader();
-    loader.load('/checkwatch.glb', (gltf) => {
-        gltf.scene.scale.set(0.88, 0.88, 0.88);
-        gltf.scene.position.y = -1;  // Adjust this value to position the character further up or down
-        gltf.scene.position.z = 3;  // Adjust this value to move the character forward or backward
-        scene.add(gltf.scene);
+        const loader = new GLTFLoader();
+        loader.load('/checkwatch.glb', (gltf) => {
+            gltf.scene.scale.set(0.88, 0.88, 0.88);
+            gltf.scene.position.y = -1;
+            gltf.scene.position.z = 3;
+            scene.add(gltf.scene);
 
-        if (gltf.animations && gltf.animations.length) {
-            mixer = new THREE.AnimationMixer(gltf.scene);
-            defaultAction = mixer.clipAction(gltf.animations[0]);
-            defaultAction.play();
+            if (gltf.animations && gltf.animations.length) {
+                mixer = new THREE.AnimationMixer(gltf.scene);
+                defaultAction = mixer.clipAction(gltf.animations[0]);
+                defaultAction.play();
 
-            loader.load('/backflip.glb', (backflipGltf) => {
-                if (backflipGltf.animations && backflipGltf.animations.length) {
-                    backflipAction = mixer.clipAction(backflipGltf.animations[0]);
-                }
-            });
-        }
-    });
-}
-
-
+                loader.load('/backflip.glb', (backflipGltf) => {
+                    if (backflipGltf.animations && backflipGltf.animations.length) {
+                        backflipAction = mixer.clipAction(backflipGltf.animations[0]);
+                    }
+                });
+            }
+        });
+    }
 
     function handleFigureClick() {
         if (mixer && backflipAction) {
@@ -130,6 +122,16 @@
 
 <div bind:this={figureContainer} class="figure-container col-span-2">
     <div id="3d-figure"></div>
+    
+    <!-- Overlay list with avatar -->
+    <div class="overlay-list">
+        <ul>
+            <li>
+                <img src="mehead.png" alt="Random Avatar">
+                Thanks for meeting on <div><p></p></div> such short notice...
+            </li>
+        </ul>
+    </div>
 </div>
 
 <style>
@@ -142,4 +144,40 @@
         width: 100%;
         height: 100%;
     }
+
+    /* Styles for the overlay list */
+    /* Styles for the overlay list */
+.overlay-list {
+    position: absolute;
+    top: 10%;  /* Adjust as needed */
+    left: 10%;  /* Adjust as needed */
+    z-index: 10;
+}
+
+.overlay-list ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #39FF14;  /* Neon green */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.overlay-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.overlay-list img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.overlay-list li {
+    font-size: 1.5em;  /* 1.5 times larger */
+    font-weight: bold;  /* Bold text */
+    color: black;  /* Black text color */
+}
+
 </style>

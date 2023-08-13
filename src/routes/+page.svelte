@@ -23,7 +23,7 @@
                 </div>
             </div>
             <!-- Add more steps as needed -->
-            <div class="step">
+            <div class="step step-2">
                 <div class="step-header">Step 2</div>
                 <div class="step-content">
                     <!-- Content for Step 2 -->
@@ -281,12 +281,13 @@ figure svg,
     gap: 24px;
     height: 90vh;
     width: 100%;
-    border: 1px solid #e0e0e0;
+    border: 3px solid black; /* Thicker black outline */
     padding: 16px;
-    border-radius: 10px;
-    background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background */
+    border-radius: 0; /* Square edges */
+    background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
     margin-top: 6%;
 }
+
 
 
 
@@ -298,9 +299,12 @@ figure svg,
     margin-bottom: 16px;
 }
 
-.steps {
-    flex: 1;
-    overflow-y: auto;
+.step {
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #0000FF; /* Blue color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
 }
 
 .step {
@@ -331,19 +335,42 @@ figure svg,
 
 .back-btn, .next-btn {
     padding: 10px 20px;
-    border: none;
-    background: #8a41df;
-    color: white;
-    border-radius: 5px;
+    border: 3px solid black; /* Thicker black outline */
+    background: #39FF14; /* Neon green background */
+    color: black; /* Black text color */
     cursor: pointer;
+    box-shadow: 0px 0px 10px #39FF14; /* Neon green shadow */
+    transition: transform 0.2s, background-color 0.2s; /* Smooth transition for hover effect and background color change */
+}
+
+.back-btn:hover, .next-btn:hover {
+    background-color: rgb(255, 111, 59); /* Neon orange background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    cursor: pointer; /* Hand icon on hover */
 }
 
 .back-btn:disabled, .next-btn:disabled {
     background: #e0e0e0;
     cursor: not-allowed;
+    box-shadow: none; /* Remove shadow for disabled state */
 }
 
 
+
+.step-2 {
+    background-color: #0000FF; /* Blue color for testing */
+}
+
+/* Specific styles for Step 1 and Step 2 */
+.step:nth-child(1), .step:nth-child(2) {
+    background-color: black;
+}
+
+/* Gradient background for the stepper container */
+.stepper-container {
+    background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient from blue to purple */
+    /* ... other existing styles ... */
+}
 
 </style>
 
