@@ -34,7 +34,7 @@
 
     // Skybox
     const textureLoader = new THREE.TextureLoader();
-    const bgTexture = textureLoader.load('/st_peters_square_night_4k.png');
+    const bgTexture = textureLoader.load('/between_bridges_4k.png');
     const skyboxGeometry = new THREE.SphereGeometry(500, 60, 40);
     const skyboxMaterial = new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide });
     const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
@@ -59,12 +59,20 @@
     }
 
     function setupControls(camera, renderer) {
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.minDistance = camera.position.z / 3;
-        controls.maxDistance = camera.position.z * 5;
-        controls.zoomSpeed = 0.5;
-        return controls;
-    }
+    const controls = new OrbitControls(camera, renderer.domElement);
+    
+    controls.minDistance = 2; // Adjust this value based on your needs
+    controls.maxDistance = camera.position.z * 5;
+    controls.zoomSpeed = 0.5;
+    
+    // Restrict vertical orbit to top half
+    controls.minPolarAngle = 0; // Top
+    controls.maxPolarAngle = Math.PI / 2; // Horizontal
+
+    return controls;
+}
+
+
 
     function setBackground(renderer) {
         const textureLoader = new THREE.TextureLoader();
@@ -73,24 +81,28 @@
     }
 
     function loadModels(scene) {
-        const loader = new GLTFLoader();
-        loader.load('/checkwatch.glb', (gltf) => {
-            gltf.scene.scale.set(0.88, 0.88, 0.88);
-            scene.add(gltf.scene);
+    const loader = new GLTFLoader();
+    loader.load('/checkwatch.glb', (gltf) => {
+        gltf.scene.scale.set(0.88, 0.88, 0.88);
+        gltf.scene.position.y = -1;  // Adjust this value to position the character further up or down
+        gltf.scene.position.z = 3;  // Adjust this value to move the character forward or backward
+        scene.add(gltf.scene);
 
-            if (gltf.animations && gltf.animations.length) {
-                mixer = new THREE.AnimationMixer(gltf.scene);
-                defaultAction = mixer.clipAction(gltf.animations[0]);
-                defaultAction.play();
+        if (gltf.animations && gltf.animations.length) {
+            mixer = new THREE.AnimationMixer(gltf.scene);
+            defaultAction = mixer.clipAction(gltf.animations[0]);
+            defaultAction.play();
 
-                loader.load('/backflip.glb', (backflipGltf) => {
-                    if (backflipGltf.animations && backflipGltf.animations.length) {
-                        backflipAction = mixer.clipAction(backflipGltf.animations[0]);
-                    }
-                });
-            }
-        });
-    }
+            loader.load('/backflip.glb', (backflipGltf) => {
+                if (backflipGltf.animations && backflipGltf.animations.length) {
+                    backflipAction = mixer.clipAction(backflipGltf.animations[0]);
+                }
+            });
+        }
+    });
+}
+
+
 
     function handleFigureClick() {
         if (mixer && backflipAction) {
@@ -122,7 +134,7 @@
 
 <style>
     .figure-container {
-        height: 166.66vh;
+        height: 55.66vh;
         position: relative;
     }
 
