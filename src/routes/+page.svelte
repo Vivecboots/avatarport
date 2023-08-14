@@ -95,6 +95,7 @@
     grid-column: span 3;
     position: relative;
     height: 90vh;
+    box-shadow: 0 0 50px #9e2eff; /* Neon green shadow at minimum glow */
 }
 
 .video-bg {
@@ -289,7 +290,7 @@ figure svg,
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-height: 90vh; /* Set a maximum height */
+    max-height: 100vh; /* Set a maximum height */
     overflow-y: auto; /* Make it scrollable vertically */
     width: 97%;
     border: 3px solid black; /* Thicker black outline */
