@@ -12,7 +12,11 @@
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
    
-        
+    <MiddleGrid />
+<div>
+   
+</div>
+          
     <div class="stepper-container">
         <div class="progress-bar"></div>
         <div class="steps">
@@ -77,7 +81,7 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
+    gap: 0px;
 }
 
 /* Hero */
@@ -279,14 +283,17 @@ figure svg,
     display: flex;
     flex-direction: column;
     gap: 24px;
-    height: 90vh;
-    width: 100%;
+    max-height: 90vh; /* Set a maximum height */
+    overflow-y: auto; /* Make it scrollable vertically */
+    width: 97%;
     border: 3px solid black; /* Thicker black outline */
     padding: 16px;
     border-radius: 0; /* Square edges */
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
     margin-top: 6%;
+    overflow-x: hidden;
 }
+
 
 
 
@@ -372,12 +379,34 @@ figure svg,
     /* ... other existing styles ... */
 }
 
+
+.stepper-container::-webkit-scrollbar {
+    width: 12px; /* Adjust width as needed */
+}
+
+.stepper-container::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Adjust color as needed */
+}
+
+/* Style for the scrollbar thumb */
+.stepper-container::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 111, 59); /* Neon orange color */
+    border-radius: 6px; /* Adjust as needed */
+}
+
+.stepper-container::-webkit-scrollbar-thumb:hover {
+    background-color: #d97a4f; /* Slightly darker shade of orange for hover effect */
+    padding-right: 4%;
+}
+
 </style>
 
 
 <script>
 import DancingFigure from '../lib/DancingFigure.svelte';
 import { onMount } from 'svelte';
+import MiddleGrid from '../lib/MiddleGrid.svelte';
+import SecondMiddleGrid from '../lib/SecondMiddleGrid.svelte';
 
 onMount(() => {
     const invaderImg = document.getElementById('invaderImg');

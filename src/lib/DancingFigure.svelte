@@ -34,7 +34,7 @@
 
         // Skybox
         const textureLoader = new THREE.TextureLoader();
-        const bgTexture = textureLoader.load('/between_bridges_4k.png');
+        const bgTexture = textureLoader.load('/st_peters_square_night_4k.png');
         const skyboxGeometry = new THREE.SphereGeometry(500, 60, 40);
         const skyboxMaterial = new THREE.MeshBasicMaterial({ map: bgTexture, side: THREE.BackSide });
         const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
@@ -70,7 +70,7 @@
 
     function setBackground(renderer) {
         const textureLoader = new THREE.TextureLoader();
-        const bgTexture = textureLoader.load('/city-7091684_1280.jpg');
+        const bgTexture = textureLoader.load('/st_peters_square_night_4k.png');
         renderer.background = bgTexture;
     }
 
@@ -128,7 +128,7 @@
         <ul>
             <li>
                 <img src="mehead.png" alt="Random Avatar">
-                Thanks for meeting on <div><p></p></div> such short notice...
+                Thanks for meeting on short notice...
             </li>
         </ul>
     </div>
