@@ -11,8 +11,14 @@
 
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
-   
-    <MiddleGrid />
+    <div class="full-width-grid">
+        
+        <MiddleGrid />
+        
+    </div>
+    
+
+    
 <div>
    
 </div>
@@ -292,6 +298,7 @@ figure svg,
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
     margin-top: 6%;
     overflow-x: hidden;
+    top: 50%; 
 }
 
 
@@ -376,6 +383,7 @@ figure svg,
 /* Gradient background for the stepper container */
 .stepper-container {
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient from blue to purple */
+    position: relative;
     /* ... other existing styles ... */
 }
 
@@ -398,6 +406,14 @@ figure svg,
     background-color: #d97a4f; /* Slightly darker shade of orange for hover effect */
     padding-right: 4%;
 }
+
+.full-width-grid {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 </style>
 

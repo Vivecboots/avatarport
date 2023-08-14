@@ -1,55 +1,73 @@
 <style>
     .grid-container {
-        padding-left: 10%;
+        padding-left: 6%; /* 6% padding on the left */
+        padding-right: 6%; /* 6% padding on the right */
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        gap: 16px; /* Adjust as needed */
-        width: 100vw; /* Full viewport width */
-        height: 23vh; /* 23% of viewport height */
+        gap: 16px;
+        width: 88vw; /* Adjusted for the 6% padding on both sides */
+        height: 23vh;
         margin-top: 6%;
         margin-bottom: 10%;
     }
 
-    .narrative {
-        grid-column: 4/6; /* Spanning columns 4 and 5 */
+    .narrative-first {
+        grid-column: 1/3;
         background: url('/mountain.png') no-repeat center center;
-        background-size: contain; /* Adjusted to fit the image within the container */
+        background-size: contain;
+        height: auto;
+        margin-right: 20%;
+    }
+
+    .skeleton-card-first {
+        grid-column: 4/7;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        color: #010101;
+        margin-right: 10%;
+    }
+
+    .narrative-second {
+        grid-column: 4/7;
+        background: url('/mountain.png') no-repeat center center;
+        background-size: contain;
         height: auto;
         margin-left: 20%;
     }
 
-    .skeleton-card {
-        grid-column: 1/4; /* Spanning the first three columns */
+    .skeleton-card-second {
+        grid-column: 1/4;
         padding: 20px;
         border: 1px solid #e0e0e0;
         border-radius: 8px;
-        color: #010101; /* Text color */
-        
+        color: #010101;
     }
 
-    /* Media query for smaller screens */
     @media (max-width: 768px) {
         .grid-container {
-            grid-template-columns: 1fr; /* Single column layout */
-            gap: 8px; /* Adjust the gap for smaller screens */
+            grid-template-columns: 1fr;
+            gap: 8px;
         }
 
-        .narrative, .skeleton-card {
-            grid-column: 1 / -1; /* Ensure all items take up the full width */
+        .narrative-first, .skeleton-card-first, .narrative-second, .skeleton-card-second {
+            grid-column: 1 / -1;
+            margin-right: 0;
+            margin-left: 0;
         }
     }
 </style>
 
 <div class="grid-container">
-    <!-- Single skeleton UI card with narrative -->
-    <div class="skeleton-card">
-        In an evolving digital realm, where identities are effortlessly crafted, the true challenge lies in authenticating ownership and identity. As a detail-oriented problem solver with a focus on blockchain technology, I've delved deep into the world of crypto, not just as a currency but as a tool for ensuring security and preserving anonymity. With expertise in Java, Svelte, EVM, Zero-Knowledge EVM, Solidity, and Web3, I've been at the forefront of projects that bridge real-life with the digital, especially focusing on inter-chain interoperability. My work with Yiddishland, developing efficient web infrastructures, and my training as a Full-Stack Developer, has equipped me to understand and address the challenges of digital ownership in an AI-driven world. Believing in the potential of blockchain beyond finance, I'm passionate about shaping a future where technology stabilizes our world, ensuring fairness and equity for all.
+    <!-- First row: picture then card -->
+    <div class="narrative-first"></div>
+    <div class="skeleton-card-first">
+        In an evolving digital realm, where identities are effortlessly crafted, the true challenge lies in authenticating ownership and identity. As a detail-oriented problem solver with a focus on blockchain technology, I've delved deep into the world of crypto, not just as a currency but as a tool for ensuring security and preserving anonymity. With expertise in Java, Svelte, EVM, Zero-Knowledge EVM, Solidity, and Web3, I've been at the forefront of projects that bridge real-life with the digital, especially focusing on inter-chain interoperability. My work with Yiddishland, developing efficient web infrastructures, and my training as a Full-Stack Developer, has equipped me to understand and address the challenges of digital ownership in an AI-driven world. Believing in the potential of blockchain beyond finance, I'm passionate about shaping a future where technology stabilizes our world, ensuring fairness and equity for all
     </div>
 
-    <!-- Narrative column -->
-    <div class="narrative"></div>
-
-    <!-- Two blank columns -->
-    <div></div>
-    <div></div>
+    <!-- Second row: card then picture -->
+    <div class="skeleton-card-second">
+        In an evolving digital realm, where identities are effortlessly crafted, the true challenge lies in authenticating ownership and identity. As a detail-oriented problem solver with a focus on blockchain technology, I've delved deep into the world of crypto, not just as a currency but as a tool for ensuring security and preserving anonymity. With expertise in Java, Svelte, EVM, Zero-Knowledge EVM, Solidity, and Web3, I've been at the forefront of projects that bridge real-life with the digital, especially focusing on inter-chain interoperability. My work with Yiddishland, developing efficient web infrastructures, and my training as a Full-Stack Developer, has equipped me to understand and address the challenges of digital ownership in an AI-driven world. Believing in the potential of blockchain beyond finance, I'm passionate about shaping a future where technology stabilizes our world, ensuring fairness and equity for all
+    </div>
+    <div class="narrative-second"></div>
 </div>
