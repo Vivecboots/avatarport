@@ -45,10 +45,15 @@
             <button class="back-btn">Back</button>
             <button class="next-btn">Next</button>
         </div>
+        
     </div>
     <!-- ... rest of the grid items ... -->
 </div>
 
+<img src="/hotline.png" alt="Hotline" class="hotline-img" />
+
+
+<ContactForm />
 
 
 
@@ -293,7 +298,8 @@ figure svg,
     max-height: 100vh; /* Set a maximum height */
     overflow-y: auto; /* Make it scrollable vertically */
     width: 97%;
-    border: 3px solid black; /* Thicker black outline */
+    border: 0px solid black; /* Thicker black outline */
+    box-shadow: 0 0 35px #32CD32; /* Neon green shadow at minimum glow */
     padding: 16px;
     border-radius: 0; /* Square edges */
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
@@ -312,6 +318,7 @@ figure svg,
     border-radius: 5px;
     position: relative;
     margin-bottom: 16px;
+    
 }
 
 .step {
@@ -414,12 +421,22 @@ figure svg,
     flex-direction: column;
 }
 
+.hotline-img {
+    transform: scale(0.30) translateY(20%);
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%; 
+    justify-content: center;
+}
+
 
 
 </style>
 
 
 <script>
+import ContactForm from "../lib/ContactForm.svelte";
+
 import DancingFigure from '../lib/DancingFigure.svelte';
 import { onMount } from 'svelte';
 import MiddleGrid from '../lib/MiddleGrid.svelte';
