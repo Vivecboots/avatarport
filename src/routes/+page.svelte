@@ -36,7 +36,7 @@
             <div class="step step-2">
                 <div class="step-header">Step 2</div>
                 <div class="step-content">
-                    <!-- Content for Step 2 -->
+                    <Dancing2 />
                 </div>
             </div>
             <!-- ... up to Step 6 ... -->
@@ -335,10 +335,12 @@ figure svg,
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
+    display: none;
 }
 
 .step.active {
     border: 2px solid #8a41df;
+    display: block;
 }
 
 .step-header {
@@ -348,6 +350,10 @@ figure svg,
 
 .step-content {
     margin-bottom: 8px;
+    z-index: 10; /* Increase the z-index */
+    background-color: transparent; /* Ensure the background is transparent */
+    display: block; /* Ensure it's displayed */
+    opacity: 1; /* Ensure it's fully opaque */
 }
 
 .step-navigation {
@@ -435,82 +441,91 @@ figure svg,
 
 
 <script>
-import ContactForm from "../lib/ContactForm.svelte";
+    import ContactForm from "../lib/ContactForm.svelte";
+    import DancingFigure from '../lib/DancingFigure.svelte';
+    import { onMount, onDestroy } from 'svelte';
+    import MiddleGrid from '../lib/MiddleGrid.svelte';
+    import SecondMiddleGrid from '../lib/SecondMiddleGrid.svelte';
+    import Dancing2 from "$lib/Dancing2.svelte";
+    
+    let currentStep = 0;
+    let steps;
 
-import DancingFigure from '../lib/DancingFigure.svelte';
-import { onMount } from 'svelte';
-import MiddleGrid from '../lib/MiddleGrid.svelte';
-import SecondMiddleGrid from '../lib/SecondMiddleGrid.svelte';
+    onMount(() => {
+        const invaderImg = document.getElementById('invaderImg');
+        const shipImg = document.querySelector('.ship');
+        const invaderSound = document.getElementById('invaderSound');
+        const shipSound = document.getElementById('shipSound');
+        const titleSound = document.getElementById('titleSound');
+        const titleElement = document.querySelector('.title');
+        const scoreCounter = document.getElementById('scoreCounter');
+        steps = document.querySelectorAll('.step');
 
-onMount(() => {
-    const invaderImg = document.getElementById('invaderImg');
-    const shipImg = document.querySelector('.ship');
-    const invaderSound = document.getElementById('invaderSound');
-    const shipSound = document.getElementById('shipSound');
-    const titleSound = document.getElementById('titleSound');
-    const titleElement = document.querySelector('.title');
-    const scoreCounter = document.getElementById('scoreCounter');
-    let score = 0;
+        invaderImg.addEventListener('click', function() {
+            invaderSound.play();
+            score += 1;
+            scoreCounter.textContent = score;
+        });
+    
+        shipImg.addEventListener('click', function() {
+            shipSound.play();
+            score += 2;
+            scoreCounter.textContent = score;
+        });
+    
+        titleElement.addEventListener('click', function() {
+            titleSound.play();
+        });
+    
+        invaderImg.addEventListener('mouseover', function() {
+            invaderImg.src = '/greeninvader.png';
+        });
+    
+        invaderImg.addEventListener('mouseout', function() {
+            invaderImg.src = '/invade.png';
+        });
+    
+        const nextBtn = document.querySelector('.next-btn');
+        const backBtn = document.querySelector('.back-btn');
+    
+        nextBtn.addEventListener('click', function() {
+            console.log("Next button clicked");
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateStep();
+                console.log("Current step after clicking next:", currentStep);
+            }
+        });
+    
+        backBtn.addEventListener('click', function() {
+            console.log("Back button clicked");
+            if (currentStep > 0) {
+                currentStep--;
+                updateStep();
+                console.log("Current step after clicking back:", currentStep);
+            }
+        });
 
-    invaderImg.addEventListener('click', function() {
-        invaderSound.play();
-        score += 1;
-        scoreCounter.textContent = score;
-    });
-
-    shipImg.addEventListener('click', function() {
-        shipSound.play();
-        score += 2;
-        scoreCounter.textContent = score;
-    });
-
-    titleElement.addEventListener('click', function() {
-        titleSound.play();
-    });
-
-    invaderImg.addEventListener('mouseover', function() {
-        invaderImg.src = '/greeninvader.png';
-    });
-
-    invaderImg.addEventListener('mouseout', function() {
-        invaderImg.src = '/invade.png';
-    });
-
-    // Stepper functionality
-let currentStep = 0;
-const steps = document.querySelectorAll('.step');
-const progressBar = document.querySelector('.progress-bar::before');
-const nextBtn = document.querySelector('.next-btn');
-const backBtn = document.querySelector('.back-btn');
-
-function updateStep() {
-    steps.forEach((step, index) => {
-        if (index === currentStep) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('active');
-        }
-    });
-    progressBar.style.width = `${(currentStep / (steps.length - 1)) * 100}%`;
-}
-
-nextBtn.addEventListener('click', function() {
-    if (currentStep < steps.length - 1) {
-        currentStep++;
+        // Initial call to set the first step as active
         updateStep();
+    });
+
+    function updateStep() {
+        steps.forEach((step, index) => {
+            if (index === currentStep) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
     }
-});
 
-backBtn.addEventListener('click', function() {
-    if (currentStep > 0) {
-        currentStep--;
-        updateStep();
-    }
-});
+    onDestroy(() => {
+        // Remove event listeners if needed
+        // For example:
+        // invaderImg.removeEventListener('click', functionReference);
+        // Note: You'll need to use named functions instead of anonymous functions to remove them.
+    });
 
-
-});
-
-</script>
-
-
+    </script>
+    
