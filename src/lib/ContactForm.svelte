@@ -1,7 +1,7 @@
 <script>
-    let name = "";
-    let email = "";
-    let message = "";
+    let name = ""; // Declaring the variable 'name'
+    let email = ""; // Declaring the variable 'email'
+    let message = ""; // Declaring the variable 'message'
     let formSent = false;
 
     function handleSubmit() {
@@ -15,21 +15,22 @@
 </script>
 
 
+
 <svelte:head>
     <style>
         .contact-card {
-            background-color: #303c7e; /* Setting the form background color */
-            border-radius: 8px;
+            background-color: #303c7e; 
             box-shadow: 0 2px 8px rgba(57, 255, 20, 0.6); /* Neon green shadow */
             overflow: hidden;
             max-width: 500px;
             margin: 2rem auto;
             margin-top: -15%;
+            color: #000; /* Make text black */
         }
         
         .contact-header {
             background-color: #9723e8;
-            color: #fff;
+            color: #000; /* Make header text black */
             padding: 1rem;
             font-size: 1.25rem;
             text-align: center;
@@ -44,19 +45,23 @@
 
         .contact-input {
             padding: 0.5rem;
-            border: none; /* Removing the border */
-            border-radius: 5px;
+            border: none; 
             font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.7); /* Slight transparency to show the background color */
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000; /* Make input text black */
         }
 
         .contact-submit {
             background-color: #39ff14;
-            color: #fff;
+            color: #000; /* Make button text black */
             padding: 0.75rem 1rem;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .contact-submit:hover {
+            background-color: #ff4500; /* Neon orange color on hover */
         }
     </style>
 </svelte:head>
@@ -92,3 +97,4 @@
         </form>
     {/if}
 </div>
+

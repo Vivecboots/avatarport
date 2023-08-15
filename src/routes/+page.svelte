@@ -424,8 +424,8 @@ figure svg,
 .hotline-img {
     transform: scale(0.30) translateY(20%);
     position: relative;
-    margin-top: 5%;
-    margin-left: 10%; 
+    margin-top: 6%;
+    margin-left: 17%; 
     justify-content: center;
 }
 

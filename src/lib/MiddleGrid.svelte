@@ -10,7 +10,7 @@
 
     .grid-container {
         padding-left: 6%;
-        padding-right: 6%;
+        padding-right: 0%;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         gap: 16px;
