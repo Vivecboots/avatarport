@@ -12,7 +12,7 @@
 
     .narrative {
         grid-column: 1/3; /* Spanning the first two columns */
-        background: url('/mountain.png') no-repeat center center;
+        background: url('/midinghtgame.gif') no-repeat center center;
         background-size: contain; /* Adjusted to fit the image within the container */
         height: auto;
         margin-right: 20%; /* Adjusted margin to right */

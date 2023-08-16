@@ -27,7 +27,7 @@
 </style>
 
 <div class="gif-container">
-    <img src="/midinghtgame.gif" alt="Train GIF" />
+    <img src="/gamble.png" alt="Train GIF" />
     <div class="overlay-list">
         <ul>
             <li>

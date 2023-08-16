@@ -23,30 +23,34 @@
    
 </div>
           
-    <div class="stepper-container">
-        <div class="progress-bar"></div>
-        <div class="steps">
-            <div class="step active">
-                <div class="step-header">Step 1: Introduction</div>
-                <div class="step-content">
-                    <DancingFigure />
-                </div>
+<div class="stepper-container">
+    <div class="progress-bar"></div>
+    <div class="steps">
+        <div class="step active">
+            <div class="step-header">Step 1: Introduction</div>
+            <div class="step-content">
+                <DancingFigure />
             </div>
-            <!-- Add more steps as needed -->
-            <div class="step step-2">
-                <div class="step-header">Step 2</div>
-                <div class="step-content">
-                    <Dancing2 />
-                </div>
+        </div>
+        <div class="step step-2">
+            <div class="step-header">Step 2</div>
+            <div class="step-content">
+                <Dancing2 />
             </div>
-            <!-- ... up to Step 6 ... -->
         </div>
-        <div class="step-navigation">
-            <button class="back-btn">Back</button>
-            <button class="next-btn">Next</button>
+        <!-- New Step 3 -->
+        <div class="step step-3">
+            <div class="step-header">Step 3</div>
+            <div class="step-content">
+                <Step3 />
+            </div>
         </div>
-        
     </div>
+    <div class="step-navigation">
+        <button class="back-btn">Back</button>
+        <button class="next-btn">Next</button>
+    </div>
+</div>
     <!-- ... rest of the grid items ... -->
 </div>
 
@@ -305,7 +309,7 @@ figure svg,
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
     margin-top: 6%;
     overflow-x: hidden;
-    top: 50%; 
+    top: 90%; 
 }
 
 
@@ -447,6 +451,9 @@ figure svg,
     import MiddleGrid from '../lib/MiddleGrid.svelte';
     import SecondMiddleGrid from '../lib/SecondMiddleGrid.svelte';
     import Dancing2 from "$lib/Dancing2.svelte";
+    import Step1 from "../lib/Step1.svelte";
+    import Step3 from "../lib/Step3.svelte";  
+
     
     let currentStep = 0;
     let steps;
