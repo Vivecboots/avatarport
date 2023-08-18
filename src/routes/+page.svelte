@@ -1,3 +1,5 @@
+
+
 <div class="grid md:grid-cols-3 gap-4 p-4">
     <div class="hero relative">
         <video autoplay loop muted class="video-bg">
@@ -474,7 +476,8 @@ figure svg,
  
 
     
-    
+    let score = 0;
+
     let currentStep = 0;
     let steps;
 
