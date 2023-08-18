@@ -17,7 +17,7 @@
 
 .overlay-list {
     position: absolute;
-    top: 50%;
+    top: 30%;
     justify-content: center;
     z-index: 10;
     margin-left: 10%;

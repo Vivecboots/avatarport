@@ -1,5 +1,3 @@
-
-
 <div class="grid md:grid-cols-3 gap-4 p-4">
     <div class="hero relative">
         <video autoplay loop muted class="video-bg">
@@ -17,60 +15,40 @@
     </div>
           
     <div class="stepper-container">
-        <div class="progress-bar"></div>
-        <div class="steps">
-            <div class="step active">
-                <div class="step-header">Step 1: Say 'Hi' to my Avatar</div>
-                <div class="step-content">
-                    <DancingFigure />  
-                </div>
-            </div>
-            <div class="step step-2">
-                <div class="step-header">Step 2</div>
-                <div class="step-content">
-                     <Step2 />  
-                </div>
-            </div>
-            <div class="step step-3">
-                <div class="step-header">Step 3</div>
-                <div class="step-content">
-                    <Step3 />
-                </div>
-            </div>
-            <div class="step step-4">
-                <div class="step-header">Step 4</div>
-                <div class="step-content">
-                    <Step4 />
-                </div>
-            </div>
-            <div class="step step-5">
-                <div class="step-header">Step 5</div>
-                <div class="step-content">
-                    <Step5 />
-                </div>
-            </div>
-            <div class="step step-6">
-                <div class="step-header">Step 6</div>
-                <div class="step-content">
-                    <Step6 />
-                </div>
-            </div>
-            <div class="step step-7">
-                <div class="step-header">Step 7</div>
-                <div class="step-content">
-                    <Step7 />
-                </div>
-            </div>
-            <div class="step-navigation">
-                <button class="back-btn">Back</button>
-                <button class="next-btn">Next</button>
-            </div>
-        </div>
+        <Stepper>
+            <Step>
+                <svelte:fragment slot="header">Step 1: Say 'Hi' to my Avatar</svelte:fragment>
+                <DancingFigure />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 2</svelte:fragment>
+                <Step2 />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 3</svelte:fragment>
+                <Step3 />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 4</svelte:fragment>
+                <Step4 />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 5</svelte:fragment>
+                <Step5 />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 6</svelte:fragment>
+                <Step6 />
+            </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 7</svelte:fragment>
+                <Step7 />
+            </Step>
+        </Stepper>
     </div>
 </div>
 
 <img src="/hotline.png" alt="Hotline" class="hotline-img" />
-
 
 
 
@@ -326,7 +304,7 @@ figure svg,
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
     margin-top: 6%;
     overflow-x: hidden;
-    top: 90%; 
+    top: 105%; 
 }
 
 
@@ -449,7 +427,7 @@ figure svg,
 .hotline-img {
     transform: scale(0.30) translateY(20%);
     position: relative;
-    margin-top: 6%;
+    margin-top: 30%;
     margin-left: 17%; 
     justify-content: center;
 }
@@ -460,6 +438,7 @@ figure svg,
 
 
 <script>
+     import { Stepper, Step } from '@skeletonlabs/skeleton';
     import ContactForm from "../lib/ContactForm.svelte";
     import DancingFigure from '../lib/DancingFigure.svelte';
     import { onMount, onDestroy } from 'svelte';
@@ -472,7 +451,7 @@ figure svg,
     import Step4 from "../lib/Step4.svelte"; 
     import Step5 from "../lib/Step5.svelte"; 
     import Step6 from "../lib/Step6.svelte"; 
-    import Step7 from "../lib/Step7.svelte"; 
+    import Step7 from "../lib/Step7.svelte";  
  
 
     

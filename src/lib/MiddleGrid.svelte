@@ -19,7 +19,7 @@
         gap: 40% 16px; /* 7% vertical gap between rows and 16px horizontal gap between columns */
         width: 100%;
         height: 23vh;
-        margin-top: 6%;
+        margin-top: 16%;
         margin-bottom: 10%;
     }
 
@@ -90,22 +90,24 @@
         <img src="/mountain.png" alt="Giant Phone">
     </div>
     <div class="skeleton-card-first">
-        In the digital frontier, the valuation of cryptocurrencies, now eclipsing 1 trillion USD, is merely a chapter in a broader story. Blockchain technology's strength lies in its unparalleled ability to safeguard identity and manage intricate state changes in a world where digital replication is all too easy. As we advance technology, the need for robust verification intensifies.
+        In the realm of digital innovation, the monumental rise of cryptocurrencies, now valued over 1 trillion USD, is just one chapter in a broader narrative. The essence of blockchain technology isn't merely its financial implications but its unparalleled ability to secure identities and manage intricate digital interactions in an age where duplication is effortless. As we push the boundaries of technology, the urgency for robust verification becomes paramount. Web3, with its intricate market dynamics, is undeniably the cornerstone of our digital future.
 
-Web3, with its market dynamics, is undeniably the blueprint for our digital future. Past underestimations, like those concerning home computers, emphasize the significance of early immersion in transformative technologies.
-
-At the heart of my Web3 commitment are the principles of ownership, privacy, and equality. I champion interoperability that's both seamless and cost-effective. A fair fee structure, irrespective of scale or arbitrary uses, is vital to ensure that everyone, regardless of socio-economic status, can participate equitably.
+        Reflecting on the history of technology, I'm reminded of the foundational decisions made in the development of JavaScript. One individual's seemingly simple choices, like naming a function "if," have since become integral to the lexicon of countless developers. These decisions, though seemingly minute at the time, have shaped the digital world we navigate today. Hundreds of thousands, if not millions, of developers have internalized and built upon these foundational choices, leading to the creation of digital societies and ecosystems.
     </div>
 
     <!-- Second row: card then picture -->
     <div class="skeleton-card-second">
-        My proficiency in Typescript and Javascript isn't just about coding. It's a testament to the profound ripple effects that individual decisions in tech can create. Investing my energy and expertise in blockchain now means I'm not only shaping its present but also influencing its future trajectory. The choices made today in this space could have far-reaching impacts, potentially shaping facets of humanity in ways we might not yet fully grasp.
+        Similarly, as we stand on the precipice of blockchain's potential, I recognize that the decisions we make now, no matter how small, can have a ripple effect, shaping the future of finance and digital interactions. My expertise in JavaScript isn't just a testament to my coding skills but symbolizes the profound impact that individual choices can have on a global scale. By immersing myself in blockchain, I'm not just participating in its present but actively sculpting its future trajectory.
 
-Financial realms, from traditional stock markets to emerging crypto spaces, always attract a blend of visionaries and opportunists. While stock markets have evolved into esteemed institutions, the crypto world is on a similar journey of maturation. I'm eager to be part of this transformative path, contributing to its refinement and potential.
-
- who made a small decision one day to name a function if.  And that if changed everything.  And thats what led me here, one question about what I stand for as a person, if, if this is what I believe in, then what are the consequences  if I don’t do it. I hope to work with only teams that feel the same passion.  Finances attract scammers, certainly.  But the stock financial sector doesnt let it define it  Rather, they are prestigious.  And one day, as the younger generations grow into the role, so will the new technology.  
+        The financial world, both traditional stock markets and the burgeoning crypto space, attracts a mix of visionaries and opportunists. While stock markets have matured into esteemed institutions, I believe the crypto realm, with the right guidance and decisions, is on a similar evolutionary path. I'm eager to be part of this transformative journey, ensuring that the legacy we leave behind is as impactful as the foundational decisions made in the early days of JavaScript.
     </div>
     <div class="narrative-second">
         <img src="/SantaMonica.png" alt="Mountain">
     </div>
 </div>
+
+
+
+
+
+

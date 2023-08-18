@@ -3,8 +3,8 @@
         <ul>
             <li class="title">7. Let's Talk</li>
             <li class="description">
-                "I've got a diverse background in tech, and I'm open to discussions and collaborations. Reach out to me at Blairwin05@gmail.com if you're interested.  Despite my current commitements to my own projects, I am also doing work developing for a startup in order to integrate web3 and advertisments into real life with the help of AI."
-            </li>
+                "I've got a diverse background in tech, and I'm open to discussions and collaborations. Reach out to me at Blairwin05@gmail.com if you're interested."  
+                        </li>
         </ul>
     </div>
 </div>
@@ -17,7 +17,7 @@
 
 .overlay-list {
     position: absolute;
-    top: 50%;
+    top: 30%;
     justify-content: center;
     z-index: 10;
     margin-left: 10%;
