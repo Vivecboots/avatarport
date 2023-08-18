@@ -128,7 +128,7 @@
         <ul>
             <li>
                 <img src="mehead.png" alt="Random Avatar">
-                Thanks for meeting on short notice...
+                Let's do this...
             </li>
         </ul>
     </div>

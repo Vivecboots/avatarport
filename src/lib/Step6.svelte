@@ -7,10 +7,10 @@
                 
                
 
-step 3
-1. My Full-Stack Journey
 
+6. My Full-Stack Journey
 
+"In the world of Full-Stack development, I've had my hands on a few systems. Vue, Next Js, and Svelte have been some of my go-tos. Each has its own charm, and I've enjoyed the unique challenges they bring."
             </li>
         </ul>
     </div>
@@ -28,7 +28,7 @@ step 3
     position: absolute;
     top: 50%;
     justify-content: center;
-    z-index: 11;
+    z-index: 15;
     margin-left: 10%;
     margin-right: 10%;
 }

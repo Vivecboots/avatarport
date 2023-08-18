@@ -8,53 +8,68 @@
         <img src="/ship.png" alt="Ship" class="ship">
         <img src="/invade.png" alt="Invader" class="invader" id="invaderImg">
         <div class="score">Score: <span id="scoreCounter">0</span></div>
-
         <div class="title"><span>Blair Winslow-Nason</span></div>
     </div>
     <div class="full-width-grid">
-        
         <MiddleGrid />
-        
     </div>
-    
-
-    
-<div>
-   
-</div>
           
-<div class="stepper-container">
-    <div class="progress-bar"></div>
-    <div class="steps">
-        <div class="step active">
-            <div class="step-header">Step 1: Introduction</div>
-            <div class="step-content">
-                <DancingFigure />
+    <div class="stepper-container">
+        <div class="progress-bar"></div>
+        <div class="steps">
+            <div class="step active">
+                <div class="step-header">Step 1: Say 'Hi' to my Avatar</div>
+                <div class="step-content">
+                    <DancingFigure />  
+                </div>
             </div>
-        </div>
-        <div class="step step-2">
-            <div class="step-header">Step 2</div>
-            <div class="step-content">
-                <Dancing2 />
+            <div class="step step-2">
+                <div class="step-header">Step 2</div>
+                <div class="step-content">
+                     <Step2 />  
+                </div>
             </div>
-        </div>
-        <!-- New Step 3 -->
-        <div class="step step-3">
-            <div class="step-header">Step 3</div>
-            <div class="step-content">
-                <Step3 />
+            <div class="step step-3">
+                <div class="step-header">Step 3</div>
+                <div class="step-content">
+                    <Step3 />
+                </div>
+            </div>
+            <div class="step step-4">
+                <div class="step-header">Step 4</div>
+                <div class="step-content">
+                    <Step4 />
+                </div>
+            </div>
+            <div class="step step-5">
+                <div class="step-header">Step 5</div>
+                <div class="step-content">
+                    <Step5 />
+                </div>
+            </div>
+            <div class="step step-6">
+                <div class="step-header">Step 6</div>
+                <div class="step-content">
+                    <Step6 />
+                </div>
+            </div>
+            <div class="step step-7">
+                <div class="step-header">Step 7</div>
+                <div class="step-content">
+                    <Step7 />
+                </div>
+            </div>
+            <div class="step-navigation">
+                <button class="back-btn">Back</button>
+                <button class="next-btn">Next</button>
             </div>
         </div>
     </div>
-    <div class="step-navigation">
-        <button class="back-btn">Back</button>
-        <button class="next-btn">Next</button>
-    </div>
-</div>
-    <!-- ... rest of the grid items ... -->
 </div>
 
 <img src="/hotline.png" alt="Hotline" class="hotline-img" />
+
+
 
 
 <ContactForm />
@@ -328,19 +343,17 @@ figure svg,
 .step {
     padding: 16px;
     border-radius: 10px;
-    background-color: #0000FF; /* Blue color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 16px;
-}
-
-.step {
-    padding: 16px;
-    border-radius: 10px;
-    background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
     display: none;
 }
+
+
+/* Specific styles for Step 1 and Step 2 */
+.step:nth-child(1), .step:nth-child(2) {
+    background-color: black;
+}
+
 
 .step.active {
     border: 2px solid #8a41df;
@@ -452,8 +465,15 @@ figure svg,
     import SecondMiddleGrid from '../lib/SecondMiddleGrid.svelte';
     import Dancing2 from "$lib/Dancing2.svelte";
     import Step1 from "../lib/Step1.svelte";
+    import Step2 from "../lib/Step2.svelte"; 
     import Step3 from "../lib/Step3.svelte";  
+    import Step4 from "../lib/Step4.svelte"; 
+    import Step5 from "../lib/Step5.svelte"; 
+    import Step6 from "../lib/Step6.svelte"; 
+    import Step7 from "../lib/Step7.svelte"; 
+ 
 
+    
     
     let currentStep = 0;
     let steps;
