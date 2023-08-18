@@ -1,28 +1,18 @@
-
 <div class="gif-container">
-    
     <div class="overlay-list">
         <ul>
-            <li>
-                
-               
-
-
-
-
-"In the world of Full-Stack development, I've had my hands on a few systems. Vue, Next Js, and Svelte have been some of my go-tos. Each has its own charm, and I've enjoyed the unique challenges they bring.  I started with learning Full-Stack by graduating
-Generation USA with a Full-Stack Developer Certificate.  I also passed my W3 Javascricpt Developer Certificate and my Scrum Certificate.  This is what got me interested in making the web exereince more interactive in novel ways."
+            <li class="title">1. Full-Stack Foundations</li>
+            <li class="description">
+                "I started in Full-Stack development with Vue, Next Js, and Svelte. Each has its strengths, and I've tackled various challenges with them. My foundation was built on a Full-Stack Developer Certificate from Generation USA, complemented by the W3 Javascript Developer, Scrum, and AWS Cloud Practitioner Certificates."
             </li>
         </ul>
     </div>
 </div>
 
-
 <style>
 .gif-container {
     height: 55.66vh;
     position: relative;
-    
 }
 
 .overlay-list {
@@ -32,6 +22,10 @@ Generation USA with a Full-Stack Developer Certificate.  I also passed my W3 Jav
     z-index: 10;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.title {
+    margin-bottom: 20px; /* This adds space between the title and the description */
 }
 
 </style>

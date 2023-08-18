@@ -87,7 +87,7 @@
 <div class="grid-container">
     <!-- First row: picture then card -->
     <div class="narrative-first">
-        <img src="/GiantPhone.png" alt="Giant Phone">
+        <img src="/mountain.png" alt="Giant Phone">
     </div>
     <div class="skeleton-card-first">
         In the digital frontier, the valuation of cryptocurrencies, now eclipsing 1 trillion USD, is merely a chapter in a broader story. Blockchain technology's strength lies in its unparalleled ability to safeguard identity and manage intricate state changes in a world where digital replication is all too easy. As we advance technology, the need for robust verification intensifies.
