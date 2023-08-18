@@ -1,9 +1,9 @@
 <div class="gif-container">
     <div class="overlay-list">
         <ul>
-            <li class="title">1. Full-Stack Foundations</li>
+            <li class="title">3. Exploring Decentralization and Privacy</li>
             <li class="description">
-                "I started in Full-Stack development with Vue, Next Js, and Svelte. Each has its strengths, and I've tackled various challenges with them. My foundation was built on a Full-Stack Developer Certificate from Generation USA, complemented by the W3 Javascript Developer, Scrum, and AWS Cloud Practitioner Certificates."
+                "I'm well-versed with Fauna and have a keen interest in zero-knowledge protocols, especially Polygon ZK-EVM. Oasis has caught my attention, and I'm gearing up to leverage it for an upcoming privacy-centric project. While Akash and the Internet Computer have their own set of intriguing features, I'm particularly excited about utilizing Akash to enhance the decentralization of a DAO in the near future."
             </li>
         </ul>
     </div>

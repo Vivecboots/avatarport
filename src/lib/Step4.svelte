@@ -1,9 +1,9 @@
 <div class="gif-container">
     <div class="overlay-list">
         <ul>
-            <li class="title">1. Full-Stack Foundations</li>
+            <li class="title">4. Blockchain Tools and Protocols</li>
             <li class="description">
-                "I started in Full-Stack development with Vue, Next Js, and Svelte. Each has its strengths, and I've tackled various challenges with them. My foundation was built on a Full-Stack Developer Certificate from Generation USA, complemented by the W3 Javascript Developer, Scrum, and AWS Cloud Practitioner Certificates."
+                "In the crypto space, I'm familiar with tools like Fauna, Fleek, Infura, Alchemy, and Moralis. I've also delved into the mechanics of derivatives, liquidity pools, order books, and protocols like debridge, uniswap, and 1inch. My experience extends to testing with Truffle and Hardhat, and I utilize Solidity."
             </li>
         </ul>
     </div>

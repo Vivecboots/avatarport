@@ -1,9 +1,9 @@
 <div class="gif-container">
     <div class="overlay-list">
         <ul>
-            <li class="title">1. Full-Stack Foundations</li>
+            <li class="title">5. Design and Aesthetics</li>
             <li class="description">
-                "I started in Full-Stack development with Vue, Next Js, and Svelte. Each has its strengths, and I've tackled various challenges with them. My foundation was built on a Full-Stack Developer Certificate from Generation USA, complemented by the W3 Javascript Developer, Scrum, and AWS Cloud Practitioner Certificates."
+                "I use Tailwind for design, ensuring my projects are both functional and visually appealing. For more dynamic elements, I work with keyframes and 3D scenes using Three.js. Tailwind, too has nice derivatives such as Daisy and Skeleton UI, for their respective frameworks. Non-library libraries such as ShadCN have also been nice to work with for their customizeability.  Finally, I've been deep diving into visual representation libraries like D3, as they throw a very professional touch to things into DeFi applications.
             </li>
         </ul>
     </div>

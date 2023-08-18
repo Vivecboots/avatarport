@@ -1,10 +1,9 @@
 <div class="gif-container">
     <div class="overlay-list">
         <ul>
-            <li class="title">1. Full-Stack Foundations</li>
+            <li class="title">6. Early Days and Ongoing Projects</li>
             <li class="description">
-                "I started in Full-Stack development with Vue, Next Js, and Svelte. Each has its strengths, and I've tackled various challenges with them. My foundation was built on a Full-Stack Developer Certificate from Generation USA, complemented by the W3 Javascript Developer, Scrum, and AWS Cloud Practitioner Certificates."
-            </li>
+                "I began with platforms like WordPress and WooCommerce. I've also contributed as a social media manager and Web Developer for a non-profit, a commitment I continue to uphold."
         </ul>
     </div>
 </div>
