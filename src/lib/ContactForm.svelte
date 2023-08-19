@@ -74,17 +74,19 @@
         }
 
         .contact-submit {
-            background-color: #000;
-            color: #000;
-            padding: 0.75rem 1rem;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    background-color: transparent; /* Set the background to transparent */
+    color: #FF69B4; /* Neon pink text color */
+    padding: 0.75rem 1rem;
+    border: 2px solid #FF69B4; /* Neon pink border */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Added transition for color */
+}
 
-        .contact-submit:hover {
-            background-color: #39ff90;
-        }
+.contact-submit:hover {
+    background-color: #39ff90; /* Neon green background on hover */
+    color: #000; /* Black text on hover */
+}
+
 
         .thank-you-message {
             font-size: 1.3rem; /* Adjusted font size */

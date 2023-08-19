@@ -15,6 +15,8 @@ Contact Form: Reach out to me directly through the integrated contact form.
 Dynamic Audio: Engaging sound effects that enhance the user experience.
 
 
+
+
 ## 📦 Installation & Setup
 
 Clone the repository:
@@ -39,11 +41,16 @@ npm run dev
 
 
 
-
 ## 🚀 Usage
 
 Once the server is up and running, open your browser and navigate to http://localhost:3000. Enjoy the interactive experience!
 
+## 🌐 Deployment
+
+
+```
+avatarport-bijpxa4wv-vivecboots.vercel.app
+```
 
 
 ## 📚 Dependencies
