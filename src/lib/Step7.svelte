@@ -3,8 +3,8 @@
         <ul>
             <li class="title">7. Let's Talk</li>
             <li class="description">
-                "I've got a diverse background in tech, and I'm open to discussions and collaborations. Reach out to me at Blairwin05@gmail.com if you're interested."  
-                        </li>
+                "I've got a diverse background in tech, and I'm open to discussions and collaborations. Reach out to me at Blairwin05@gmail.com if you're interested."
+            </li>
         </ul>
     </div>
 </div>
@@ -24,8 +24,11 @@
     margin-right: 10%;
 }
 
-.title {
-    margin-bottom: 20px; /* This adds space between the title and the description */
+.title, .description {
+    margin: 10px 0;
 }
 
+.title {
+    margin-bottom: 20px;
+}
 </style>

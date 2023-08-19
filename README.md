@@ -1,38 +1,81 @@
-# create-svelte
+# 🚀 Blair Winslow-Nason's Web3 Portfolio 
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Welcome to my portfolio project.  It uses a mix of technologies including 3d (ThreeJS) and touch of 90's arcade aesthetics to convey the material.  
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🎥 Features
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Retro Sci-Fi Background: A looping video background that sets the mood for a futuristic grid landscape.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+Interactive Elements: Click on the space invaders and ships to increase your score.
+
+Stepper Navigation: A step-by-step guide to explore various sections of the portfolio.
+
+Contact Form: Reach out to me directly through the integrated contact form.
+Dynamic Audio: Engaging sound effects that enhance the user experience.
+
+
+## 📦 Installation & Setup
+
+Clone the repository:
 ```
+git clone https://github.com/YourUsername/YourRepoName.git
+```
+Navigate to the project directory:
+```
+cd YourRepoName
 
-## Developing
+```
+Install the dependencies:
+```
+npm install
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+```
+Start the development server:
+```
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
 
-To create a production version of your app:
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+## 🚀 Usage
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Once the server is up and running, open your browser and navigate to http://localhost:3000. Enjoy the interactive experience!
+
+
+
+## 📚 Dependencies
+
+Svelte & SvelteKit: For building interactive UIs.
+
+TailwindCSS: For styling and responsive design.
+
+Three.js: For 3D graphics.
+
+Vite: As the build tool and dev server.
+
+EmailJS: For sending emails directly from the browser.
+
+## 📜 License & Acknowledgments
+
+Created by Blair Winslow-Nason. All rights reserved. No part of this website may be reproduced without permission. Special thanks to all the open-source libraries and contributors. For detailed acknowledgments and licenses, please check the GitHub repository.
+
+Ryan Permana / for cub studio and running johnny
+
+pako / night art
+  
+Hachubby / Rokubop GIF  / computer with grid future
+
+## 📜 📌 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📞 Contact
+
+For any inquiries or feedback, please reach out to Blairwin05@gmail.com.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

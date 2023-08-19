@@ -44,6 +44,10 @@
                 <svelte:fragment slot="header">Step 7</svelte:fragment>
                 <Step7 />
             </Step>
+            <Step>
+                <svelte:fragment slot="header">Step 8</svelte:fragment>
+                <Step8 />
+            </Step>
         </Stepper>
     </div>
 </div>
@@ -468,6 +472,7 @@ figure svg,
     import Step5 from "../lib/Step5.svelte"; 
     import Step6 from "../lib/Step6.svelte"; 
     import Step7 from "../lib/Step7.svelte";  
+    import Step8 from "../lib/Step8.svelte";  
  
 
     

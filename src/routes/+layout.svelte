@@ -29,28 +29,21 @@
         <!-- App Bar -->
         <AppBar>
             <svelte:fragment slot="lead">
-                <strong class="text-xl uppercase">Skeleton</strong>
+                <strong class="text-xl uppercase">Blair Winslow-Nason: Web3, DeFi and Full-Stack Dev</strong>
             </svelte:fragment>
             <svelte:fragment slot="trail">
                 <a
                     class="btn btn-sm variant-ghost-surface"
-                    href="https://discord.gg/EXqV7W8MtY"
+                    href="https://docs.google.com/document/d/1_m-KOzEDbvb9CMK1_dTkZWr02DnQV81q93sZspQhWUw/edit?usp=sharing"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    Discord
+                    Resume
                 </a>
+              
                 <a
                     class="btn btn-sm variant-ghost-surface"
-                    href="https://twitter.com/SkeletonUI"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Twitter
-                </a>
-                <a
-                    class="btn btn-sm variant-ghost-surface"
-                    href="https://github.com/skeletonlabs/skeleton"
+                    href="https://github.com/Vivecboots"
                     target="_blank"
                     rel="noreferrer"
                 >
