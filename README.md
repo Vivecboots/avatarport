@@ -26,17 +26,14 @@ git clone https://github.com/YourUsername/YourRepoName.git
 Navigate to the project directory:
 ```
 cd YourRepoName
-
 ```
 Install the dependencies:
 ```
 npm install
-
 ```
 Start the development server:
 ```
 npm run dev
-
 ```
 
 
