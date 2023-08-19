@@ -54,6 +54,7 @@
             padding: 1rem;
             font-size: 1.25rem;
             text-align: center;
+            font-weight: bold;
         }
 
         .contact-form {
@@ -63,16 +64,17 @@
             padding: 2rem;
         }
 
-        .contact-input {
+        input.contact-input, textarea.contact-input {
             padding: 0.5rem;
             border: none;
             font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #000;
+            background-color: #4a5a9e; /* Lighter shade of blue */
+            color: #FF69B4; /* Neon pink */
+            font-weight: bold; /* Bold text */
         }
 
         .contact-submit {
-            background-color: #39ff14;
+            background-color: #000;
             color: #000;
             padding: 0.75rem 1rem;
             border: none;
@@ -81,16 +83,22 @@
         }
 
         .contact-submit:hover {
-            background-color: #ff4500;
+            background-color: #39ff90;
+        }
+
+        .thank-you-message {
+            font-size: 1.3rem; /* Adjusted font size */
+            padding: 1% 5%; /* Percentage-based padding */
+            text-align: center; /* Center the text */
         }
     </style>
 </svelte:head>
 
 <div class="contact-card">
     {#if formSent}
-        <p>Thank you for your message! We'll get back to you shortly.</p>
+        <div class="thank-you-message">Thank you for your message! We'll get back to you shortly.</div>
     {:else}
-        <div class="contact-header">Contact Us</div>
+        <div class="contact-header">Drop a Line</div>
         <form class="contact-form" on:submit|preventDefault={handleSubmit}>
             <input
                 class="contact-input"
@@ -117,5 +125,3 @@
         </form>
     {/if}
 </div>
-
-

@@ -54,6 +54,12 @@
 
 <ContactForm />
 
+<div class="info-container">
+    <p>Created by: Blair Winslow-Nason</p>
+    <p>Copyright: All rights reserved. No part of this website may be reproduced without permission.</p>
+    <p>Acknowledgments: Thanks to all the open-source libraries and contributors. Please check Git Hub for the repo for all details.</p>
+</div>
+
 
 
 <svg width="0" height="0" style="position:absolute">
@@ -302,7 +308,7 @@ figure svg,
     padding: 16px;
     border-radius: 0; /* Square edges */
     background: linear-gradient(to bottom, #3b3d91, #a020f0); /* Gradient background from blue to purple */
-    margin-top: 6%;
+    margin-top: 7%;
     overflow-x: hidden;
     top: 105%; 
 }
@@ -427,11 +433,21 @@ figure svg,
 .hotline-img {
     transform: scale(0.30) translateY(20%);
     position: relative;
-    margin-top: 30%;
+    margin-top: 37%;
     margin-left: 17%; 
     justify-content: center;
 }
 
+.info-container {
+    background-color: #303c7e; /* Same blue as the contact card */
+    padding: 20px;
+    border-radius: 10px;
+    color: #8988e3; /* Neon pink */
+    font-weight: semi-italic; 
+    margin-top: 17%;
+    text-align: center;
+    text-size-adjust: 10%;
+}
 
 
 </style>
