@@ -1,36 +1,56 @@
 <script>
-    let name = ""; // Declaring the variable 'name'
-    let email = ""; // Declaring the variable 'email'
-    let message = ""; // Declaring the variable 'message'
+    import { onMount } from 'svelte';
+
+    let name = "";
+    let email = "";
+    let message = "";
     let formSent = false;
 
+    onMount(() => {
+        // Dynamically load the EmailJS SDK
+        const script = document.createElement('script');
+        script.src = 'https://cdn.emailjs.com/dist/email.min.js';
+        script.onload = () => {
+            // Initialize EmailJS with your user_id
+            window.emailjs.init('blair');
+        };
+        document.body.appendChild(script);
+    });
+
     function handleSubmit() {
-        // Here you can add logic to send the form data to your backend or any API endpoint.
-        // For the sake of this demonstration, we'll simply reset the form and show a success message.
+    // Send the email using EmailJS
+    window.emailjs.send('service_whwonuc', 'template_bymloll', {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: 'Blairwin05@gmail.com'
+    }, 'yYw_FP2TjeZvS4KtK').then(() => {
         formSent = true;
         name = "";
         email = "";
         message = "";
-    }
+    }).catch(error => {
+        console.error('Email sending failed:', error);
+    });
+}
+
 </script>
-
-
 
 <svelte:head>
     <style>
         .contact-card {
-            background-color: #303c7e; 
-            box-shadow: 0 2px 8px rgba(57, 255, 20, 0.6); /* Neon green shadow */
+            background-color: #303c7e;
+            box-shadow: 0 2px 8px rgba(57, 255, 20, 0.6);
             overflow: hidden;
             max-width: 500px;
             margin: 2rem auto;
             margin-top: -15%;
-            color: #000; /* Make text black */
+            color: #000;
         }
-        
+
         .contact-header {
             background-color: #9723e8;
-            color: #000; /* Make header text black */
+            color: #000;
             padding: 1rem;
             font-size: 1.25rem;
             text-align: center;
@@ -45,23 +65,23 @@
 
         .contact-input {
             padding: 0.5rem;
-            border: none; 
+            border: none;
             font-size: 1rem;
             background-color: rgba(255, 255, 255, 0.7);
-            color: #000; /* Make input text black */
+            color: #000;
         }
 
         .contact-submit {
             background-color: #39ff14;
-            color: #000; /* Make button text black */
+            color: #000;
             padding: 0.75rem 1rem;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s; /* Smooth transition */
+            transition: background-color 0.3s;
         }
 
         .contact-submit:hover {
-            background-color: #ff4500; /* Neon orange color on hover */
+            background-color: #ff4500;
         }
     </style>
 </svelte:head>
@@ -97,4 +117,5 @@
         </form>
     {/if}
 </div>
+
 
