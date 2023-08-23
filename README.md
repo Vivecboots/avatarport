@@ -64,7 +64,7 @@ EmailJS: For sending emails directly from the browser.
 
 ## 📜 License & Acknowledgments
 
-Created by Blair Winslow-Nason. All rights reserved. No part of this website may be reproduced without permission. Special thanks to all the open-source libraries and contributors. For detailed acknowledgments and licenses, please check the GitHub repository.
+Created by Blair Winslow-Nason. All rights reserved. No part of this website may be reproduced without permission. Special thanks to all the open-source libraries and contributors. For detailed acknowledgments and licenses, please check the GitHub repository.  If you see work in here that is not properly acknowledged, please contact me.
 
 Ryan Permana / for cub studio and running johnny
 

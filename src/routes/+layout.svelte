@@ -40,7 +40,7 @@
                 >
                     Resume
                 </a>
-              
+               
                 <a
                     class="btn btn-sm variant-ghost-surface"
                     href="https://github.com/Vivecboots"
@@ -48,6 +48,14 @@
                     rel="noreferrer"
                 >
                     GitHub
+                </a>
+                <a
+                    class="btn btn-sm variant-ghost-surface"
+                    href="https://tron-explorer-2-2-m2k83n5se-vivecboots.vercel.app"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                tron-explorer-2-2
                 </a>
             </svelte:fragment>
         </AppBar>
