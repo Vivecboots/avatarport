@@ -80,12 +80,7 @@
 
 
 
-
-
-
-
 <div class="grid-container">
-    <!-- First row: picture then card -->
     <div class="narrative-first">
         <img src="/mountain.png" alt="Giant Phone">
     </div>
@@ -95,7 +90,6 @@
         Reflecting on the history of technology, I'm reminded of the foundational decisions made in the development of JavaScript. One individual's seemingly simple choices, like naming a function "if," have since become integral to the lexicon of countless developers. These decisions, though seemingly minute at the time, have shaped the digital world we navigate today. Hundreds of thousands, if not millions, of developers have internalized and built upon these foundational choices, leading to the creation of digital societies and ecosystems.
     </div>
 
-    <!-- Second row: card then picture -->
     <div class="skeleton-card-second">
         Similarly, as we stand on the precipice of blockchain's potential, I recognize that the decisions we make now, no matter how small, can have a ripple effect, shaping the future of finance and digital interactions. My expertise in JavaScript isn't just a testament to my coding skills but symbolizes the profound impact that individual choices can have on a global scale. By immersing myself in blockchain, I'm not just participating in its present but actively sculpting its future trajectory.
 
@@ -105,9 +99,3 @@
         <img src="/SantaMonica.png" alt="Mountain">
     </div>
 </div>
-
-
-
-
-
-

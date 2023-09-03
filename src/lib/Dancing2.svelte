@@ -1,28 +1,28 @@
 <style>
     .gif-container {
-        position: relative; /* Set the container to relative positioning */
+        position: relative;
         height: 55.66vh;
     }
 
     .overlay-list {
-        position: absolute; /* Overlay will be positioned absolutely within the gif-container */
-        top: 10%; /* Adjust these values to position the overlay as needed */
+        position: absolute;
+        top: 10%;
         left: 10%;
-        color: white; /* Set the text color to white for visibility on the gif */
-        z-index: 1; /* Ensure the overlay appears above the gif */
+        color: white;
+        z-index: 1;
         margin-left: 40%;
     }
 
     .overlay-list ul {
-        list-style-type: none; /* Remove bullet points */
+        list-style-type: none;
         padding: 0;
         margin: 0;
     }
 
     .overlay-list li img {
-        width: 50px; /* Adjust the avatar size as needed */
-        vertical-align: middle; /* Align the image with the text */
-        margin-right: 10px; /* Space between the avatar and text */
+        width: 50px;
+        vertical-align: middle;
+        margin-right: 10px;
     }
 </style>
 
@@ -37,3 +37,4 @@
         </ul>
     </div>
 </div>
+

@@ -6,10 +6,10 @@
 
     .overlay-list {
         position: absolute; /* Overlay will be positioned absolutely within the gif-container */
-        top: 10%; /* Adjust these values to position the overlay as needed */
+        top: 10%; 
         left: 10%;
         color: white; /* Set the text color to white for visibility on the gif */
-        z-index: 1; /* Ensure the overlay appears above the gif */
+        z-index: 1; 
         margin-left: 40%;
     }
 

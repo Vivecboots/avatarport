@@ -11,29 +11,28 @@
         const script = document.createElement('script');
         script.src = 'https://cdn.emailjs.com/dist/email.min.js';
         script.onload = () => {
-            // Initialize EmailJS with your user_id
+            // Initialize EmailJS
             window.emailjs.init('blair');
         };
         document.body.appendChild(script);
     });
 
     function handleSubmit() {
-    // Send the email using EmailJS
-    window.emailjs.send('service_whwonuc', 'template_bymloll', {
-        from_name: name,
-        from_email: email,
-        message: message,
-        to_email: 'Blairwin05@gmail.com'
-    }, 'yYw_FP2TjeZvS4KtK').then(() => {
-        formSent = true;
-        name = "";
-        email = "";
-        message = "";
-    }).catch(error => {
-        console.error('Email sending failed:', error);
-    });
-}
-
+        // Send email using EmailJS
+        window.emailjs.send('service_whwonuc', 'template_bymloll', {
+            from_name: name,
+            from_email: email,
+            message: message,
+            to_email: 'Blairwin05@gmail.com'
+        }, 'yYw_FP2TjeZvS4KtK').then(() => {
+            formSent = true;
+            name = "";
+            email = "";
+            message = "";
+        }).catch(error => {
+            console.error('Email sending failed:', error);
+        });
+    }
 </script>
 
 <svelte:head>
@@ -41,7 +40,6 @@
         .contact-card {
             background-color: #303c7e;
             box-shadow: 0 2px 8px rgba(57, 255, 20, 0.6);
-            overflow: hidden;
             max-width: 500px;
             margin: 2rem auto;
             margin-top: -15%;
@@ -68,30 +66,29 @@
             padding: 0.5rem;
             border: none;
             font-size: 1rem;
-            background-color: #4a5a9e; /* Lighter shade of blue */
-            color: #FF69B4; /* Neon pink */
-            font-weight: bold; /* Bold text */
+            background-color: #4a5a9e;
+            color: #FF69B4;
+            font-weight: bold;
         }
 
         .contact-submit {
-    background-color: transparent; /* Set the background to transparent */
-    color: #FF69B4; /* Neon pink text color */
-    padding: 0.75rem 1rem;
-    border: 2px solid #FF69B4; /* Neon pink border */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; /* Added transition for color */
-}
+            background-color: transparent;
+            color: #FF69B4;
+            padding: 0.75rem 1rem;
+            border: 2px solid #FF69B4;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-.contact-submit:hover {
-    background-color: #39ff90; /* Neon green background on hover */
-    color: #000; /* Black text on hover */
-}
-
+        .contact-submit:hover {
+            background-color: #39ff90;
+            color: #000;
+        }
 
         .thank-you-message {
-            font-size: 1.3rem; /* Adjusted font size */
-            padding: 1% 5%; /* Percentage-based padding */
-            text-align: center; /* Center the text */
+            font-size: 1.3rem;
+            padding: 1% 5%;
+            text-align: center;
         }
     </style>
 </svelte:head>

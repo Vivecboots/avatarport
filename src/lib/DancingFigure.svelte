@@ -24,7 +24,6 @@
     function setupScene() {
         const scene = new THREE.Scene();
 
-        // Lights
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
 
@@ -32,7 +31,6 @@
         directionalLight.position.set(0, 1, 1).normalize();
         scene.add(directionalLight);
 
-        // Skybox
         const textureLoader = new THREE.TextureLoader();
         const bgTexture = textureLoader.load('/st_peters_square_night_4k.png');
         const skyboxGeometry = new THREE.SphereGeometry(500, 60, 40);
@@ -122,8 +120,6 @@
 
 <div bind:this={figureContainer} class="figure-container col-span-2">
     <div id="3d-figure"></div>
-    
-    <!-- Overlay list with avatar -->
     <div class="overlay-list">
         <ul>
             <li>
@@ -145,39 +141,36 @@
         height: 100%;
     }
 
-    /* Styles for the overlay list */
-    /* Styles for the overlay list */
-.overlay-list {
-    position: absolute;
-    top: 10%;  /* Adjust as needed */
-    left: 10%;  /* Adjust as needed */
-    z-index: 10;
-}
+    .overlay-list {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        z-index: 10;
+    }
 
-.overlay-list ul {
-    list-style-type: none;
-    padding: 0;
-    background-color: #39FF14;  /* Neon green */
-    border-radius: 5px;
-    padding: 10px;
-}
+    .overlay-list ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #39FF14;
+        border-radius: 5px;
+        padding: 10px;
+    }
 
-.overlay-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .overlay-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-.overlay-list img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
+    .overlay-list img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 
-.overlay-list li {
-    font-size: 1.5em;  /* 1.5 times larger */
-    font-weight: bold;  /* Bold text */
-    color: black;  /* Black text color */
-}
-
+    .overlay-list li {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: black;
+    }
 </style>
